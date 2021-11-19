@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tw.gic.bootcamp.solid.product.InventoryServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-11-17T11:58:20" hostname="anil-tw-mac" time="3.989">
+  <properties/>
+  <testcase name="testEnvRead()" classname="com.tw.gic.bootcamp.solid.product.InventoryServiceTest" time="0.012"/>
+  <testcase name="testService()" classname="com.tw.gic.bootcamp.solid.product.InventoryServiceTest" time="3.973"/>
+  <testcase name="addProduct()" classname="com.tw.gic.bootcamp.solid.product.InventoryServiceTest" time="0.003"/>
+  <system-out><![CDATA[INFO: CustomerComplaint : Emailing customer at 
+17:28:20.975 [Test worker] DEBUG org.springframework.web.client.RestTemplate - HTTP GET https://inventory-external-svc.herokuapp.com/
+17:28:20.980 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Accept=[text/plain, application/json, application/*+json, */*]
+17:28:24.512 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Response 200 OK
+17:28:24.514 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading to [java.lang.String] as "text/plain;charset=UTF-8"
+INFO: CustomerComplaint : Response is Welcome to Inventory External Service. See the all the APIs <a href="swagger-ui.html">here</a>
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
