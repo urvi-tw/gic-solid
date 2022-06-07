@@ -23,8 +23,8 @@ class InventoryServiceTest {
         Inventory inventory = new Inventory(new HashMap<>());
 
         InventoryService s = new InventoryService(inventory);
-        s.addProduct(new Product(10, "Parker Pen", Category.STATIONARY, 101, ProductStatus.SOLD));
-        s.addProduct(new Product(10, "Parker Pen", Category.ELECTRONICS, 101, ProductStatus.SOLD));
+        s.addProduct(new Product(10, "Parker Pen", Category.STATIONARY, ProductType.PHYSICAL,101, ProductStatus.SOLD));
+        s.addProduct(new Product(10, "Parker Pen", Category.ELECTRONICS, ProductType.PHYSICAL,101, ProductStatus.SOLD));
     }
 
     @Test
