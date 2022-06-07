@@ -13,6 +13,7 @@
 * This service provides REST APIs used by service engineers of an online retailer
 * It has APIs related to inventory management, order management & customer complaint management
 * Start the application and access all the APIs at http://localhost:8080/swagger-ui.html
+* stagging environment can be accessed at: https://gicsolidurvi.herokuapp.com/swagger-ui.html
 * Production is running at https://gic-inventory-app.herokuapp.com/swagger-ui.html
 
 ## Future plan
