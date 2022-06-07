@@ -1,14 +1,14 @@
 package com.tw.gic.bootcamp.solid.product;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import org.springframework.beans.factory.annotation.Value;
 
 @ToString
 @Getter
 @AllArgsConstructor
 @Setter
+
+
 public class Product {
 
     private int serialNumber;
@@ -16,6 +16,8 @@ public class Product {
     private String name;
 
     private Category category;
+
+    private ProductType productType;
 
     private int price;
 

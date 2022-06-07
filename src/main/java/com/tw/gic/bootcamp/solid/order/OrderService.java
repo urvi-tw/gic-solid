@@ -14,5 +14,5 @@ public interface OrderService {
 
     void updateOrderStatus(int orderId, OrderStatus status) throws ServiceException;
 
-    String shipProduct(Integer orderId) throws ServiceException;
+    String dispatchProduct(Integer orderId) throws ServiceException;
 }

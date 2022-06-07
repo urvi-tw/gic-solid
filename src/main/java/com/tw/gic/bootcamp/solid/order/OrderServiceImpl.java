@@ -104,7 +104,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public String shipProduct(Integer orderId) throws ServiceException {
+    public String dispatchProduct(Integer orderId) throws ServiceException {
         Order order = getOrder(orderId);
         int productId = order.getProductId();
 
@@ -116,6 +116,6 @@ public class OrderServiceImpl implements OrderService {
             return "product " + product.getSerialNumber() + " is not yet sold";
         }
 
-        return shippingService.sendProduct(productId, orderId, order.getCustomerId(), order.getAddress());
+        return shippingService.dispatchProduct(productId, orderId, order.getCustomerId(), order.getAddress(),product.getProductType());
     }
 }

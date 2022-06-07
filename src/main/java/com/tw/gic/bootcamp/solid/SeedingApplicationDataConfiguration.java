@@ -8,6 +8,7 @@ import com.tw.gic.bootcamp.solid.order.OrderStatus;
 import com.tw.gic.bootcamp.solid.product.Category;
 import com.tw.gic.bootcamp.solid.product.Product;
 import com.tw.gic.bootcamp.solid.product.ProductStatus;
+import com.tw.gic.bootcamp.solid.product.ProductType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -23,12 +24,12 @@ public class SeedingApplicationDataConfiguration {
     @Bean
     public List<Product> getProductsForSeeding() {
         final List<Product> products = new ArrayList<>();
-        products.add(new Product(10, "Parker Pen", Category.STATIONARY, 101, ProductStatus.SOLD));
-        products.add(new Product(20, "Parker Pen", Category.STATIONARY, 101, ProductStatus.SOLD));
-        products.add(new Product(30, "Hero Pen", Category.STATIONARY, 101, ProductStatus.SOLD));
-        products.add(new Product(40, "Hero Pen", Category.STATIONARY, 101, ProductStatus.SOLD));
-        products.add(new Product(50, "Sony 32 TV", Category.ELECTRONICS, 24566, ProductStatus.AVAILABLE));
-        products.add(new Product(60, "Sony 32 TV", Category.ELECTRONICS, 24566, ProductStatus.AVAILABLE));
+        products.add(new Product(10, "Parker Pen", Category.STATIONARY, ProductType.PHYSICAL,101, ProductStatus.SOLD));
+        products.add(new Product(20, "Parker Pen", Category.STATIONARY, ProductType.PHYSICAL,101, ProductStatus.SOLD));
+        products.add(new Product(30, "Hero Pen", Category.STATIONARY, ProductType.PHYSICAL,101, ProductStatus.SOLD));
+        products.add(new Product(40, "Hero Pen", Category.STATIONARY, ProductType.PHYSICAL,101, ProductStatus.SOLD));
+        products.add(new Product(50, "Sony 32 TV", Category.ELECTRONICS,ProductType.PHYSICAL, 24566, ProductStatus.AVAILABLE));
+        products.add(new Product(60, "Sony 32 TV", Category.ELECTRONICS, ProductType.PHYSICAL,24566, ProductStatus.AVAILABLE));
         return products;
     }
 

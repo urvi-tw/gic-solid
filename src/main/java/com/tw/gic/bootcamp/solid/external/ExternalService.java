@@ -69,4 +69,20 @@ public class ExternalService {
 
         Logger.instance().info("ExternalService", stringResponseEntity.toString());
     }
+
+    public void digitallyDeliverProduct(int serialNumber, String address) {
+
+        RestTemplate restTemplate = new RestTemplateBuilder().build();
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("email", address);
+        map.put("productId", serialNumber);
+        HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(map, new HttpHeaders());
+
+        ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(configReader.getExtSvcUrl() + "/digitalDelivery", requestEntity, String.class);
+
+        Logger.instance().info("ExternalService", stringResponseEntity.toString());
+    }
+
+
 }

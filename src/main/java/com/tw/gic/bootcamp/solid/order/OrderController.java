@@ -39,7 +39,7 @@ public class OrderController {
 
     @PostMapping("/{orderId}/dispatch/")
     public ResponseEntity courierProduct(@PathVariable int orderId) throws ServiceException {
-        String err = orderService.shipProduct(orderId);
+        String err = orderService.dispatchProduct(orderId);
         orderService.updateOrderStatus(orderId, OrderStatus.SHIPPED);
         return err == null ? ResponseEntity.ok("Successfully shipped order: " + orderId) : ResponseEntity.internalServerError().body(err);
     }

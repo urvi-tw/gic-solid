@@ -69,7 +69,7 @@ public class InventoryService {
             return "Product is already sold " + productId;
         }
 
-        Product updatedProduct = new Product(productId, productUpdate.getName(), productUpdate.getCategory(), productUpdate.getPrice(), existingProduct.getProductStatus());
+        Product updatedProduct = new Product(productId, productUpdate.getName(), productUpdate.getCategory(), productUpdate.getProductType(),productUpdate.getPrice(), existingProduct.getProductStatus());
 
         Map<Category, Map<Integer, Product>> productList = inventory.getProductList();
 
