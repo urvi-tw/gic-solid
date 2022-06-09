@@ -1,5 +1,6 @@
 package com.tw.gic.bootcamp.solid.external;
 
+import com.tw.gic.bootcamp.solid.SolidApplication;
 import com.tw.gic.bootcamp.solid.util.ConfigReader;
 import com.tw.gic.bootcamp.solid.util.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,12 @@ import java.util.Map;
 @Service
 public class ExternalService {
 
-    private ConfigReader configReader;
+    //private ConfigReader configReader;
 
-    @Autowired
-    public ExternalService(ConfigReader configReader) {
-        this.configReader = configReader;
-    }
+//    @Autowired
+//    public ExternalService(ConfigReader configReader) {
+//        this.configReader = configReader;
+//    }
 
 
     public void sendEmail(String emailId, String subject, String content) {
@@ -34,7 +35,7 @@ public class ExternalService {
         map.put("subject", subject);
         HttpEntity<Map<String, String>> requestEntity = new HttpEntity<>(map, new HttpHeaders());
 
-        ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(configReader.getExtSvcUrl() + "/email", requestEntity, String.class);
+        ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(SolidApplication.getConfigReader().getExtSvcUrl() + "/email", requestEntity, String.class);
 
         Logger.instance().info("ExternalService", stringResponseEntity.toString());
 
@@ -49,7 +50,7 @@ public class ExternalService {
         map.put("message", message);
         HttpEntity<Map<String, String>> requestEntity = new HttpEntity<>(map, new HttpHeaders());
 
-        ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(configReader.getExtSvcUrl() + "/sms", requestEntity, String.class);
+        ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(SolidApplication.getConfigReader().getExtSvcUrl() + "/sms", requestEntity, String.class);
 
         Logger.instance().info("ExternalService", stringResponseEntity.toString());
     }
@@ -65,7 +66,7 @@ public class ExternalService {
         map.put("address", address);
         HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(map, new HttpHeaders());
 
-        ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(configReader.getExtSvcUrl() + "/courierProduct", requestEntity, String.class);
+        ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(SolidApplication.getConfigReader().getExtSvcUrl() + "/courierProduct", requestEntity, String.class);
 
         Logger.instance().info("ExternalService", stringResponseEntity.toString());
     }
@@ -79,7 +80,7 @@ public class ExternalService {
         map.put("productId", serialNumber);
         HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(map, new HttpHeaders());
 
-        ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(configReader.getExtSvcUrl() + "/digitalDelivery", requestEntity, String.class);
+        ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(SolidApplication.getConfigReader().getExtSvcUrl() + "/digitalDelivery", requestEntity, String.class);
 
         Logger.instance().info("ExternalService", stringResponseEntity.toString());
     }
