@@ -38,7 +38,7 @@ jobs:
       - store_artifacts:
           path: build/reports/tests/test/index.html
       - store_artifacts:
-          path: build/jacoco/tests/html/index.html
+          path: build/jacoco/
 
   package:
     docker:
