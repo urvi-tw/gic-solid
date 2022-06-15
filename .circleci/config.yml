@@ -40,7 +40,7 @@ jobs:
           destination: tests
       - store_artifacts:
           path: build/reports/jacoco
-            destination: jacoco
+          destination: jacoco
 
   package:
     docker:
