@@ -37,8 +37,10 @@ jobs:
           path: build/test-results
       - store_artifacts:
           path: build/reports/
+          destination: tests
       - store_artifacts:
           path: build/reports/jacoco
+            destination: jacoco
 
   package:
     docker:
