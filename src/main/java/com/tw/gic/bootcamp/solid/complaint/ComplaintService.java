@@ -1,21 +1,22 @@
 package com.tw.gic.bootcamp.solid.complaint;
 
 import com.tw.gic.bootcamp.solid.error.ServiceException;
+import com.tw.gic.bootcamp.solid.team.ComplaintProcessingTeam;
 
 import java.util.List;
 
-public class ComplaintStatsService {
+public class ComplaintService {
 
     private ComplaintRegister register;
 
     private ComplaintProcessingTeam team;
 
-    private static ComplaintStatsService instance = new ComplaintStatsService();
+    private static ComplaintService instance = new ComplaintService();
 
-    private ComplaintStatsService() {
+    private ComplaintService() {
     }
 
-    public static ComplaintStatsService getInstance() {
+    public static ComplaintService getInstance() {
         return instance;
     }
 

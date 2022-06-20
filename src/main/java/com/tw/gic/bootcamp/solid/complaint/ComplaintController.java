@@ -10,17 +10,17 @@ public class ComplaintController {
 
     @PostMapping
     public ResponseEntity addComplaint(CreateComplaint c) throws InterruptedException {
-        return ResponseEntity.ok("Added complaint. ID is: "+ComplaintStatsService.getInstance().addComplaint(c));
+        return ResponseEntity.ok("Added complaint. ID is: "+ ComplaintService.getInstance().addComplaint(c));
     }
 
     @GetMapping
     public ResponseEntity getComplaint(int id) throws ServiceException {
-        return ResponseEntity.ok(ComplaintStatsService.getInstance().getComplaint(id));
+        return ResponseEntity.ok(ComplaintService.getInstance().getComplaint(id));
     }
 
     @GetMapping("/all")
     public ResponseEntity getAllComplaints() {
-        return ResponseEntity.ok(ComplaintStatsService.getInstance().getAllComplaints());
+        return ResponseEntity.ok(ComplaintService.getInstance().getAllComplaints());
     }
 
     @GetMapping("/search")
@@ -31,6 +31,6 @@ public class ComplaintController {
 
     @GetMapping("/stats")
     public ResponseEntity getStats() {
-        return ResponseEntity.ok(ComplaintStatsService.getInstance().getStatus());
+        return ResponseEntity.ok(ComplaintService.getInstance().getStatus());
     }
 }

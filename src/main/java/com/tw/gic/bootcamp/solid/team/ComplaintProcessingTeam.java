@@ -1,12 +1,19 @@
-package com.tw.gic.bootcamp.solid.complaint;
+package com.tw.gic.bootcamp.solid.team;
 
+import com.tw.gic.bootcamp.solid.complaint.ComplaintRegister;
+import com.tw.gic.bootcamp.solid.complaint.CustomerCareExecutive;
 import com.tw.gic.bootcamp.solid.external.ExternalService;
+import lombok.Getter;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Getter
 public class ComplaintProcessingTeam {
 
+    private String name;
     private int teamSize;
 
     private int SLA;
@@ -22,14 +29,25 @@ public class ComplaintProcessingTeam {
         this.SLA = SLA;
         this.complaintRegister = complaintRegister;
         this.externalService = externalService;
-    }
 
-    public void startProcessing() throws InterruptedException {
         for (int i = 0; i < teamSize; i++) {
             CustomerCareExecutive customerCareExecutive = new CustomerCareExecutive("Emp-" + i, SLA, complaintRegister, externalService);
             teamMembers.add(customerCareExecutive);
-            customerCareExecutive.start();
+            //customerCareExecutive.start();
         }
+
+
+    }
+
+    public void startProcessing() throws InterruptedException {
+
+        teamMembers.stream().forEach(customerCareExecutive -> customerCareExecutive.start());
+
+//        for (int i = 0; i < teamSize; i++) {
+//            CustomerCareExecutive customerCareExecutive = new CustomerCareExecutive("Emp-" + i, SLA, complaintRegister, externalService);
+//            teamMembers.add(customerCareExecutive);
+//            customerCareExecutive.start();
+//        }
     }
 
 

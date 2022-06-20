@@ -1,15 +1,19 @@
 package com.tw.gic.bootcamp.solid;
 
-import com.tw.gic.bootcamp.solid.complaint.ComplaintProcessingTeam;
+import com.tw.gic.bootcamp.solid.complaint.CustomerComplaint;
+import com.tw.gic.bootcamp.solid.complaint.UrgentCustomerComplaint;
+import com.tw.gic.bootcamp.solid.team.ComplaintProcessingTeam;
 import com.tw.gic.bootcamp.solid.complaint.ComplaintRegister;
-import com.tw.gic.bootcamp.solid.complaint.ComplaintStatsService;
-import com.tw.gic.bootcamp.solid.error.ServiceException;
+import com.tw.gic.bootcamp.solid.complaint.ComplaintService;
 import com.tw.gic.bootcamp.solid.external.ExternalService;
 import com.tw.gic.bootcamp.solid.util.ConfigReader;
 import com.tw.gic.bootcamp.solid.util.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class SolidApplication {
@@ -34,6 +38,8 @@ public class SolidApplication {
         return configReader;
     }
 
+
+
     public static void main(String[] args) {
 
         SpringApplication.run(SolidApplication.class, args);
@@ -46,16 +52,17 @@ public class SolidApplication {
             }
 
             ComplaintRegister orderCompaints = new ComplaintRegister(getConfigReader().getComplaintRegisterSize());
-            ComplaintStatsService.getInstance().setRegsiter(orderCompaints);
+            ComplaintService.getInstance().setRegsiter(orderCompaints);
             SeedingApplicationDataConfiguration.loadOrderComplaints(orderCompaints);
 
             ComplaintProcessingTeam orderProcessingTeam = new ComplaintProcessingTeam(getConfigReader().getTeamSize(), getConfigReader().getTeamSLA(), orderCompaints, externalService);
-            ComplaintStatsService.getInstance().setTeam(orderProcessingTeam);
+            ComplaintService.getInstance().setTeam(orderProcessingTeam);
             orderProcessingTeam.startProcessing();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
+
 
 }
